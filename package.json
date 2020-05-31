@@ -1,0 +1,28 @@
+{
+  "name": "toy_hls",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --module commonjs toy.ts",
+    "bundle": "npm run build && browserify toy.js -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miyo/toy_hls.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/miyo/toy_hls/issues"
+  },
+  "homepage": "https://github.com/miyo/toy_hls#readme"
+}

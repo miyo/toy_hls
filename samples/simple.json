@@ -1,0 +1,48 @@
+{
+    "name" : "brink_led",
+    "inputs" : [ ],
+    "outputs" : [
+        {"name": "LED", "type" : {"kind" : "bit"}}
+    ],
+    "variables" : [
+        {"name" : "counter", "type" : {"kind": "vector", "size" : 32}}
+    ],
+    "functions" : [ ],
+    "body" : {
+        "label" : "S0",
+        "kind" : "loop",
+        "body" : {
+            "kind": "block",
+            "block": [
+                {
+                    "kind" : "assign",
+                    "dst" : {"kind": "variable", "name": "counter"},
+                    "src" : {
+                        "kind" : "binary_expr",
+                        "op" : "plus",
+                        "args" : [{"kind":"variable", "name":"counter"}, {"kind":"int", "num":1}]
+                    }
+                },
+                {
+                    "kind" : "if",
+                    "cond" : {
+                        "kind" : "binary_expr",
+                        "op" : "==",
+                        "args" : [{"kind":"variable", "name":"counter"}, {"kind":"int", "num":100000000}]
+                    },
+                    "then_part" : {
+                        "kind" : "assign",
+                        "dst" : {"kind": "variable", "name": "LED"},
+                        "src" : {
+                            "kind" : "unary_expr",
+                            "op" : "not",
+                            "arg" : {"kind":"variable", "name":"LED"}
+                        }
+                    },
+                    "else_part" :{
+                    }
+                }
+            ]
+        }
+    }
+}
