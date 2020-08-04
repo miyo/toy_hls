@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-linedtextarea.js"></script>
+    <title>Toy HLS</title>
+    <link rel="stylesheet" href="css/jquery-linedtextarea.css"></link>
+    <style>
+      .error { background-color : #FFCCFF; }
+      .alert { color : #FF0000; font-size: small; }
+      .placeholder { color : #CCCCCC; }
+    </style>
+  </head>
+  <body>
+    <h3>Input</h3>
+    <textarea id="given" rows="50" cols="120"></textarea>
+    <br>
+    <br>
+    <input type="button" id="convert" name="convert" value="convert"/>
+    <span id="convert_error"></span>
+    <h3>SchedulerTable</h3>
+    <textarea id="scheduler_table" rows="50" cols="120"></textarea>
+    <br>
+    <h3>Output</h3>
+    <textarea id="result" rows="50" cols="120"></textarea>
+    <br>
+    <br>
+  </body>
+  <script src="scheduler.js"></script>
+  <script src="hdl_generator.js"></script>
+  <script src="json-ir.js"></script>
+</html>

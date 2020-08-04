@@ -1,0 +1,44 @@
+{ "version" : "0.1",
+  "classes" : [
+     {"name" : "BlinkLED",
+      "variables" : [{ "name" : "led", "type" : "bool", "init" : "false" }],
+      "methods" : [
+        {"name" : "main", "type" : "void",
+         "args" : [{ "name" : "num", "type" : "int"}, { "name" : "wait_val", "type" : "int"}],
+         "block" : {
+           "variables" : [{ "name" : "i", "type" : "int", "init" : "0" },
+                          { "name" : "j", "type" : "int", "init" : "0" }],
+           "statements" : [
+             { "kind" : "while",
+               "expr" : { "kind" : "binary", "op" : "<",
+                          "args" : [{"kind" : "variable", "name" : "i"}, {"kind" : "variable", "name" : "num"}] },
+               "block" : {
+                 "statements" : [
+                   { "kind" : "while", 
+                      "expr" : { "kind" : "binary", "op" : "<",
+                                 "args" : [{"kind" : "variable", "name" : "j"}, {"kind" : "variable", "name" : "wait_val"}] },
+                      "block" : {
+                        "variables" : [],
+                        "statements" : [
+                          { "kind" : "assign",
+                            "dest" : { "kind" : "variable", "name" : "j" },
+                            "expr" : { "kind" : "binary", "op" : "+",
+                                       "args" : [{"kind" : "variable", "name" : "j"},
+                                                 {"kind" : "constant", "type" : "int", "value" : "1"}] }}]}},
+                   { "kind" : "assign",
+                     "dest" : { "kind" : "variable", "name" : "led" },
+                     "expr" : { "kind" : "unary", "op" : "not", "args" : [{"kind" : "variable", "name" : "led"}]}}
+                  ]
+               }
+             },
+             { "kind" : "assign",
+               "dest" : { "kind" : "variable", "name" : "i" },
+               "expr" : { "kind" : "binary", "op" : "+",
+                          "args" : [{"kind" : "variable", "name" : "i"}, {"kind" : "constant", "type" : "int", "value" : "1"}]}}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

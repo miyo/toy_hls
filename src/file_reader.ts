@@ -6,7 +6,7 @@ export function updateSize(){
     reader.onload = () => {
         const dst = document.getElementById("log");
         let str = reader.result.toString()
-        let d = eval("(" + str + ")");
+        let d = JSON.parse(str);
         dst.innerHTML += d['name'] + "<br>";
         let m = module.parse_module(d);
         m.dump();
